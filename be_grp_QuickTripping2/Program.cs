@@ -4,9 +4,12 @@ namespace be_grp_QuickTripping2
 {
   class Program
   {
+        
     static void Main(string[] args)
     {
-      var userEntry = 0;
+       Console.WriteLine("Quick Trip 2");
+
+            var userEntry = 0;
       // print menu
       // validate menu
 
