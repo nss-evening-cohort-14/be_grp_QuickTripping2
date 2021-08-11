@@ -11,46 +11,47 @@ namespace be_grp_QuickTripping2
 
             var userEntry = 0;
       // print menu
-      // validate menu
+      PrintMenuChoice();
+      GetMenuChoice();
 
-
-      switch (userEntry)
+ switch (userEntry)
       {
         case 1:
           // enter district sales
           // print menu
-          // validate menu
+          GetMenuChoice();
           break;
         case 2:
           // generate district report
           // print menu
-          // validate menu
+          GetMenuChoice();
           break;
         case 3:
           // Add New Employee
           // print menu
-          // validate menu
+          GetMenuChoice();
           break;
         case 4:
           // Add a Store/District
           // print menu
-          // validate menu
+          GetMenuChoice();
           break;
         case 5:
-        // exit
+          // exiting program if menu choice is 5
+          return;
         default:
           break;
       }
     }
 
-    public Int32 GetMenuChoice()
+    public static Int32 GetMenuChoice()
     {
       var userMenuChoice = "";
       var userChoice = 0;
       Console.WriteLine("Please enter a menu choice");
       userMenuChoice = Console.ReadLine();
 
-      while (Int32.TryParse(userMenuChoice, out userChoice))
+      while (!Int32.TryParse(userMenuChoice, out userChoice))
       {
         PrintMenuChoice();
         Console.WriteLine("Please enter a menu choice");
@@ -59,7 +60,7 @@ namespace be_grp_QuickTripping2
       return userChoice;
     }
 
-    public void PrintMenuChoice()
+    public static void PrintMenuChoice()
     {
       Console.WriteLine("1. Enter District Sales");
       Console.WriteLine("2. Generate District Report");
@@ -68,6 +69,14 @@ namespace be_grp_QuickTripping2
       Console.WriteLine("5. Exit");
     }
     //  Console.WriteLine("");
+
+    public static void EnterDistrictSales()
+    {
+
+    }
+
+
+
 
   }
 }
