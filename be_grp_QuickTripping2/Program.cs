@@ -3,28 +3,25 @@ using System;
 
 namespace be_grp_QuickTripping2
 {
-<<<<<<< HEAD
+
   class Program
   {
-    static void Main(string[] args)
-    {
-       Console.WriteLine("Quick Trip");
-
-      var userEntry = 0;
-      // print menu
-      PrintMenuChoice();
-      GetMenuChoice();
-=======
-    class Program
-    {
         static void Main(string[] args)
         {
+            Console.WriteLine("Quick Trip");
+            
             var storeRepo = new StoreRepository();
+            //var storeRepo2 = new StoreRepository();
             var userEntry = 0;
+
+            var district = new District("SE", "Karen");
+
+
             // print menu
             PrintMenuChoice();
             userEntry = GetMenuChoice();
->>>>>>> 2ec70ddf98e661a7403a198aaf18286a61079edd
+
+
 
             switch (userEntry)
             {
@@ -45,7 +42,20 @@ namespace be_grp_QuickTripping2
                     break;
                 case 4:
                     // Add a Store/District
-                    storeRepo.AddStore(new Store { StoreName = "Store1", StoreNumber = 1001, Qtr1 = 1000, Qtr2 = 100, Qtr3 = 10, Qtr4 = 10000 } );
+                    storeRepo2.AddStore(new Store { StoreName = "Chesty", StoreNumber = 1775, Qtr1 = 1000, Qtr2 = 100, Qtr3 = 10, Qtr4 = 10000 } );
+                    
+                    districtRepo.AddDistrict(new District
+                    {
+                        DistrictName = "South-District",
+                        DistrictNumber = 2,
+                        DistrictManager = "Karen",
+                       // ListOfStores = StoreRepository._store
+                    });
+                    var temp = districtRepo.GetAll();
+
+                    Console.WriteLine($"Districts:\n{string.Join(",\n", districtRepo.GetAll())}.");
+
+
                     // print menu
                     userEntry = GetMenuChoice();
                     break;
