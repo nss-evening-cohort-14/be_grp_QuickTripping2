@@ -21,7 +21,7 @@ namespace be_grp_QuikTrippin
 
         };
 
-        //   // private static readonly Store _store;
+        // private static readonly Store _store;
 
         public List<District> GetAll()
         {
@@ -33,10 +33,10 @@ namespace be_grp_QuikTrippin
             _district.Add(district);
         }
 
-        public void Delete(District district.DistrictName)
+        public void Delete(District district)
         {
             var removeDistrict = _district.First
-                (district => district.DistrictName);
+                (district => district.DistrictName == name);
 
             _district.Remove(removeDistrict);
         }
@@ -46,19 +46,20 @@ namespace be_grp_QuikTrippin
 
         public class District
         {
-            // district name
-            public string DistrictName { get; set; } = "DistrictOne";
+            // District Name
+            public DistrictName Name { get; set; }
+
+            // DistrictNumber
+            public int DistrictNumber { get; set; }
+            // public static int DistrictNumber = 1;
+
+            //  District Manager
+            public string DistrictManager { get; set; }
 
             // list of stores
             //public List<Store> ListOfStores { get; set; }  = new List<Store>();
 
             // add store/district
-            public static int DistrictNumber = 1;
-
-
-            // add district manager
-            public string DistrictManager { get; set; } = "Bob";
-
             public District(string districtName, string districtManager)
             {
                 DistrictName = districtName;
@@ -83,7 +84,6 @@ namespace be_grp_QuikTrippin
 
 
 
-            // I made changes
         }
     }
 }
