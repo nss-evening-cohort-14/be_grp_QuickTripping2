@@ -8,9 +8,10 @@ namespace be_grp_QuikTrippin
 {
     enum EmployeeTitles
     {
-        // store manager
-        // assistant manager
-        // associate
-        // district manager
+        AssistantManager,
+        Clerk,
+        DistrictManager,
+        GeneralManager,
+        Unemployed
     }
 }
