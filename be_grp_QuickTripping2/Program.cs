@@ -58,6 +58,7 @@ namespace be_grp_QuickTripping2
 
 
                     // print menu
+                    
                     userEntry = GetMenuChoice();
                     break;
                 case 5:
@@ -98,6 +99,22 @@ namespace be_grp_QuickTripping2
         {
 
         }
+
+        public static void PrintDistrictMenu()
+        {
+            Console.WriteLine("District Menu");
+            var allDistricts = districtRepo.GetAll();
+            foreach (var district in allDistricts)
+            {
+                Console.WriteLine($"District #: {district.DistrictNumber} \t District Name: {district.DistrictName}");
+            }
+            Console.WriteLine("1. District Stores");
+            Console.WriteLine("2. Remove District");
+            Console.WriteLine("3. Add District Manager");
+            Console.WriteLine("4. Remove District Manager");
+            Console.WriteLine("5. Exit");
+        }
+
 
 
 
