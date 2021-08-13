@@ -15,9 +15,6 @@ namespace be_grp_QuickTripping2
             var storeRepo2 = new StoreRepository();
             var userEntry = 0;
 
-            //var district = new List<District>{ "SE", "Karen" };
-
-
             // print menu
             PrintMenuChoice();
             userEntry = GetMenuChoice();
@@ -44,21 +41,10 @@ namespace be_grp_QuickTripping2
                 case 4:
                     // Add a Store/District
                     storeRepo2.AddStore(new Store { StoreName = "Chesty", StoreNumber = 1775, Qtr1 = 1000, Qtr2 = 100, Qtr3 = 10, Qtr4 = 10000 } );
-                    
-                    //district.AddDistrict(new District
-                    //{
-                    //    DistrictName = "South-District",
-                    //    DistrictNumber = 2,
-                    //    DistrictManager = "Karen",
-                    //   // ListOfStores = StoreRepository._store
-                    //});
-                    //var temp = districtRepo.GetAll();
 
-                    //Console.WriteLine($"Districts:\n{string.Join(",\n", districtRepo.GetAll())}.");
 
 
                     // print menu
-                    
                     userEntry = GetMenuChoice();
                     break;
                 case 5:

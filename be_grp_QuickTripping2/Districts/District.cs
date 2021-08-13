@@ -1,53 +1,17 @@
-﻿using System;
+﻿//using be_grp_QuickTripping2.Districts;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace be_grp_QuikTrippin
-{
-    class DistrictRepository
+namespace be_grp_QuikTrippin.Districts
     {
-        static List<District> _district = new List<District>
-        {
-            new District
-            {
-                DistrictName = "SE",
-                //DistrictNumber = 1,
-                DistrictManager = "Bob",
-                //ListOfStores = new List<Store> {_store}
-                //ListOfStores = StoreRepository._store
-            }
-
-        };
-
-        // private static readonly Store _store;
-
-        public List<District> GetAll()
-        {
-            return _district;
-        }
-
-        public void AddDistrict(District district)
-        {
-            _district.Add(district);
-        }
-
-        public void Delete(District district)
-        {
-            var removeDistrict = _district.First
-                (district => district.DistrictName == name);
-
-            _district.Remove(removeDistrict);
-        }
-
-
-
-
-        public class District
+        // District Class
+        class District
         {
             // District Name
-            public DistrictName Name { get; set; }
+            public string DistrictName { get; set; }
 
             // DistrictNumber
             public int DistrictNumber { get; set; }
@@ -59,28 +23,27 @@ namespace be_grp_QuikTrippin
             // list of stores
             //public List<Store> ListOfStores { get; set; }  = new List<Store>();
 
-            // add store/district
-            public District(string districtName, string districtManager)
+            // Add District
+            public District(string districtname, int districtNumber, string districtManager)
             {
-                DistrictName = districtName;
+                DistrictName = districtname;
                 DistrictNumber++;
                 DistrictManager = districtManager;
 
             }
 
-            // Method
-            public string GetDistrictName()
-            {
+        // Method
+        public string GetDistrictName()
+        {
 
-                return DistrictName;
-            }
+            return DistrictName;
+        }
 
-            public int GetDistrictNumber()
+        // Method
+        public int GetDistrictNumber()
             {
                 return DistrictNumber;
             }
-
-
 
 
 

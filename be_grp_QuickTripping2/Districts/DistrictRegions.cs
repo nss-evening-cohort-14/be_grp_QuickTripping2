@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace be_grp_QuickTripping2.Districts
 {
-    enum DistrictName
+    public enum DistrictName
     {
         South,
         SouthEast,
@@ -15,6 +15,5 @@ namespace be_grp_QuickTripping2.Districts
         North, 
         NorthEast,
         NorthWest
-
     }
 }
