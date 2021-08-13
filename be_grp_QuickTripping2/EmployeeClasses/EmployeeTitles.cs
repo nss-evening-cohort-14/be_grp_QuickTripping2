@@ -10,6 +10,7 @@ namespace be_grp_QuikTrippin
     {
         AssistantManager,
         Clerk,
+        DistrictManager,
         GeneralManager,
         Unemployed
     }
