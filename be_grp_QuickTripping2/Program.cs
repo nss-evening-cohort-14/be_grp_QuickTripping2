@@ -1,5 +1,6 @@
 ﻿using be_grp_QuikTrippin;
 using System;
+using System.Collections.Generic;
 
 namespace be_grp_QuickTripping2
 {
@@ -11,10 +12,10 @@ namespace be_grp_QuickTripping2
             Console.WriteLine("Quick Trip");
             
             var storeRepo = new StoreRepository();
-            //var storeRepo2 = new StoreRepository();
+            var storeRepo2 = new StoreRepository();
             var userEntry = 0;
 
-            var district = new District("SE", "Karen");
+            //var district = new List<District>{ "SE", "Karen" };
 
 
             // print menu
@@ -44,16 +45,16 @@ namespace be_grp_QuickTripping2
                     // Add a Store/District
                     storeRepo2.AddStore(new Store { StoreName = "Chesty", StoreNumber = 1775, Qtr1 = 1000, Qtr2 = 100, Qtr3 = 10, Qtr4 = 10000 } );
                     
-                    districtRepo.AddDistrict(new District
-                    {
-                        DistrictName = "South-District",
-                        DistrictNumber = 2,
-                        DistrictManager = "Karen",
-                       // ListOfStores = StoreRepository._store
-                    });
-                    var temp = districtRepo.GetAll();
+                    //district.AddDistrict(new District
+                    //{
+                    //    DistrictName = "South-District",
+                    //    DistrictNumber = 2,
+                    //    DistrictManager = "Karen",
+                    //   // ListOfStores = StoreRepository._store
+                    //});
+                    //var temp = districtRepo.GetAll();
 
-                    Console.WriteLine($"Districts:\n{string.Join(",\n", districtRepo.GetAll())}.");
+                    //Console.WriteLine($"Districts:\n{string.Join(",\n", districtRepo.GetAll())}.");
 
 
                     // print menu
@@ -97,7 +98,6 @@ namespace be_grp_QuickTripping2
         {
 
         }
-
 
 
 
