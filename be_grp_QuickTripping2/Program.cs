@@ -13,6 +13,7 @@ namespace be_grp_QuickTripping2
             
             var storeRepo = new StoreRepository();
             var storeRepo2 = new StoreRepository();
+            //var districtRepo = new DistrictRepository();
             var userEntry = 0;
 
             // print menu
@@ -41,7 +42,6 @@ namespace be_grp_QuickTripping2
                 case 4:
                     // Add a Store/District
                     storeRepo2.AddStore(new Store { StoreName = "Chesty", StoreNumber = 1775, Qtr1 = 1000, Qtr2 = 100, Qtr3 = 10, Qtr4 = 10000 } );
-
 
 
                     // print menu
@@ -86,20 +86,21 @@ namespace be_grp_QuickTripping2
 
         }
 
-        public static void PrintDistrictMenu()
-        {
-            Console.WriteLine("District Menu");
-            var allDistricts = districtRepo.GetAll();
-            foreach (var district in allDistricts)
-            {
-                Console.WriteLine($"District #: {district.DistrictNumber} \t District Name: {district.DistrictName}");
-            }
-            Console.WriteLine("1. District Stores");
-            Console.WriteLine("2. Remove District");
-            Console.WriteLine("3. Add District Manager");
-            Console.WriteLine("4. Remove District Manager");
-            Console.WriteLine("5. Exit");
-        }
+        // District Menu
+    //    public static void PrintDistrictMenu()
+    //    {
+    //        Console.WriteLine("District Menu");
+    //        var allDistricts = districtRepo.GetAll();
+    //        foreach (var district in allDistricts)
+    //        {
+    //            Console.WriteLine($"District #: {district.DistrictNumber} \t District Name: {district.DistrictName}");
+    //        }
+    //Console.WriteLine("1. District Stores");
+    //        Console.WriteLine("2. Remove District");
+    //        Console.WriteLine("3. Add District Manager");
+    //        Console.WriteLine("4. Remove District Manager");
+    //        Console.WriteLine("5. Exit");
+    //    }
 
 
 

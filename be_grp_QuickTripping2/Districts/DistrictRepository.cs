@@ -1,4 +1,5 @@
-﻿using System;
+﻿using be_grp_QuikTrippin.Districts;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,11 +9,12 @@ namespace be_grp_QuickTripping2.Districts
 {
     class DistrictRepository
     {
-        static List<District> _district = new List<District> 
+        static List<District> _district = new List<District>() 
         {
-            new District(DistrictName, 1, "Bob"),
-            new District(DistrictName, 2, "Karen"),
+            new District("South", 1, "Bob"),
+            new District("SouthEast", 2, "Karen"),
         };
+        private static District district;
 
         //public static object Districtname { get; private set; }
 
@@ -22,15 +24,15 @@ namespace be_grp_QuickTripping2.Districts
             return _district;
         }
 
-        public void AddDistrict(District districtname)
+        static void AddDistrict(District district)
         {
             _district.Add(district);
         }
 
-        public void Delete(DistrictName districtname)
+        public void Delete(string districtname)
         {
             var removeDistrict = _district.First
-                (district => district.Name == districtname);
+                (district => district.DistrictName == districtname);
 
             _district.Remove(removeDistrict);
         }
@@ -47,10 +49,6 @@ namespace be_grp_QuickTripping2.Districts
         //    //}
         //};
 
-        //public static object Districtname { get; private set; }
-
         // private static readonly Store _store;
-
-
     }
 }
