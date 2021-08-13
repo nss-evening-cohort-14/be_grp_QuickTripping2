@@ -33,7 +33,7 @@ namespace be_grp_QuikTrippin
             _district.Add(district);
         }
 
-        public void Delete(DistrictName name)
+        public void Delete(District district)
         {
             var removeDistrict = _district.First
                 (district => district.DistrictName == name);
