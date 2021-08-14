@@ -27,12 +27,13 @@ namespace be_grp_QuikTrippin.Districts
             //public List<Store> ListOfStores { get; set; }  = new List<Store>();
 
             // Add District
-            public District(DistrictTitles districtname, int districtNumber, EmployeeTitles title, string districtManager)
+            public District(DistrictTitles districtname, int districtNumber, EmployeeTitles title, string districtManager, int storeNumber)
             {
                 Name = districtname;
                 DistrictNumber++;
                 Title = title;
                 DistrictManager = districtManager;
+                StoreNumber = storeNumber;
 
             }
 
@@ -53,8 +54,6 @@ namespace be_grp_QuikTrippin.Districts
             {
                 return DistrictNumber;
             }
-
-
 
         }
     }
