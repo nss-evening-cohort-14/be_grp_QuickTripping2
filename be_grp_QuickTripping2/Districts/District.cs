@@ -19,8 +19,10 @@ namespace be_grp_QuikTrippin.Districts
 
             //  District Manager
             public string DistrictManager { get; set; }
+            public EmployeeTitles Title { get; }
 
             // list of stores
+            public int StoreNumber { get; }
             //public List<Store> ListOfStores { get; set; }  = new List<Store>();
 
             // Add District
