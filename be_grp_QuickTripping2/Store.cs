@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace be_grp_QuikTrippin
 {
@@ -53,8 +50,6 @@ namespace be_grp_QuikTrippin
 
         public bool FindStore(int storeNumber)
         {
-          //  var foundStore = _store.First(store => store.StoreNumber == storeNumber);
-            var foundIt = false;
             foreach (var store in _store)
             {
                 if (store.StoreNumber == storeNumber)
@@ -96,8 +91,8 @@ namespace be_grp_QuikTrippin
         }
         public void GetStoreQuarter(int storeNumber, int userQuarter)
         {
-            switch (userQuarter)
-            {
+            //switch (userQuarter)
+            //{
                 //case 1:
                 //    return Qtr1;
                 //    break;
@@ -111,7 +106,7 @@ namespace be_grp_QuikTrippin
                 //    return Qtr4;
                 //    break;
 
-            }
+            //}
         }
     }
 

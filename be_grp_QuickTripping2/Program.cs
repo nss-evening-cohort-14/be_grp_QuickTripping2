@@ -1,6 +1,5 @@
 ﻿using be_grp_QuikTrippin;
 using System;
-using System.Collections.Generic;
 
 namespace be_grp_QuickTripping2
 {
@@ -9,7 +8,8 @@ namespace be_grp_QuickTripping2
         static void Main(string[] args)
         {
             Console.WriteLine("Quick Trip");
-            
+
+            var employeeRepo = new EmployeeRepository();
             var storeRepo = new StoreRepository();
             
             var userEntry = 0;
@@ -17,40 +17,50 @@ namespace be_grp_QuickTripping2
             PrintMenuChoice();
             userEntry = GetMenuChoice();
 
-            switch (userEntry)
+            while (userEntry > 0 && userEntry <= 6)
             {
-                case 1:
-                    // enter district sales
-                    // print menu
-                    userEntry = GetMenuChoice();
-                    break;
-                case 2:
-                    // generate district report
-                    // print menu
-                    userEntry = GetMenuChoice();
-                    break;
-                case 3:
-                    // Add New Employee
-                    // print menu
-                    userEntry = GetMenuChoice();
-                    break;
-                case 4:
-                    //Add a Store/District
-                  storeRepo.AddStore(new Store { StoreName = "Store7", StoreNumber = 1007, GasQtr1 = 1000, GasQtr2 = 100, GasQtr3 = 10, GasQtr4 = 10000, RetailQtr1 = 1000, RetailQtr2 = 100, RetailQtr3 = 10, RetailQtr4 = 10000, DistrictID = 1000} );
-                   
-                    Console.WriteLine($"This is the value for Quarter ");
-                   PrintStoreMenu(storeRepo);
 
-                    NewStoreMenu(storeRepo);
+                switch (userEntry)
+                {
+                    case 1:
+                        // enter district sales
+                        // print menu
+                        PrintMenuChoice();
+                        userEntry = GetMenuChoice();
+                        break;
+                    case 2:
+                        // generate district report
+                        // print menu
+                        PrintMenuChoice();
+                        userEntry = GetMenuChoice();
+                        break;
+                    case 3:
+                        // Add New Employee
+                        PrintEmployeeMenu(employeeRepo);
+                        NewEmployeeMenu(employeeRepo);
+                        // print menu
+                        PrintMenuChoice();
+                        userEntry = GetMenuChoice();
+                        break;
+                    case 4:
+                        //Add a Store/District
+                        storeRepo.AddStore(new Store { StoreName = "Store7", StoreNumber = 1007, GasQtr1 = 1000, GasQtr2 = 100, GasQtr3 = 10, GasQtr4 = 10000, RetailQtr1 = 1000, RetailQtr2 = 100, RetailQtr3 = 10, RetailQtr4 = 10000, DistrictID = 1000 });
 
-                    // print menu
-                    userEntry = GetMenuChoice();
-                    break;
-                case 5:
-                    // exiting program if menu choice is 5
-                    return;
-                default:
-                    break;
+                        Console.WriteLine($"This is the value for Quarter ");
+                        PrintStoreMenu(storeRepo);
+
+                        NewStoreMenu(storeRepo);
+
+                        // print menu
+                        PrintMenuChoice();
+                        userEntry = GetMenuChoice();
+                        break;
+                    case 5:
+                        // exiting program if menu choice is 5
+                        return;
+                    default:
+                        break;
+                }
             }
         }
 
@@ -152,6 +162,63 @@ namespace be_grp_QuickTripping2
             Console.WriteLine("5. Exit");
         }
         //  Console.WriteLine("");
+
+        public static void PrintEmployeeMenu(EmployeeRepository employeeRepo)
+        {
+            Console.WriteLine("Existing Employees:");
+            foreach (var employee in EmployeeRepository._employees)
+            {
+                Console.WriteLine($"{employee.Name} is a {employee.Title} at Store #{employee.StoreNumber}");
+            }
+
+        }
+
+        public static void NewEmployeeMenu(EmployeeRepository employeeRepo)
+        {
+            var userChoice = CheckingValue("\nWould you like to make a new employee? \nPlease Enter 1 for Yes. \nPlease Enter 2 for No.");
+            while (userChoice == 1)
+            {
+                AddingNewEmployee(employeeRepo);
+                userChoice = CheckingValue("Would you like to make a new employee? \nPlease Enter 1 for Yes. \nPlease Enter 2 for No.");
+            }
+        }
+
+        public static void AddingNewEmployee(EmployeeRepository employeeRepo)
+        {
+            int employeeStoreNumber = CheckingValue("Choose store number:");
+
+            Console.WriteLine("Enter employee name:");
+            string employeeNameInput = Console.ReadLine();
+            while (employeeRepo.FindEmployee(employeeNameInput))
+            {
+                Console.WriteLine("That employee already exists, please enter a new employee:");
+                employeeNameInput = Console.ReadLine();
+            }
+
+            int employeeTitleChoice = CheckingValue("Choose employee title: \n1 - Clerk \n2 - Assistant Manager \n3 - General Manager \n4 - District Manager ");
+            EmployeeTitles employeeTitle = EmployeeTitles.Clerk;
+            switch (employeeTitleChoice)
+            {
+                case 1:
+                    employeeTitle = EmployeeTitles.Clerk;
+                    break;
+                case 2:
+                    employeeTitle = EmployeeTitles.AssistantManager;
+                    break;
+                case 3:
+                    employeeTitle = EmployeeTitles.GeneralManager;
+                    break;
+                case 4:
+                    employeeTitle = EmployeeTitles.DistrictManager;
+                    break;
+                default:
+                    break;
+            }
+
+            int employeeSales = CheckingValue("Enter employee retail sales:");
+
+            employeeRepo.AddEmployee(new Employee(employeeNameInput, employeeStoreNumber, employeeTitle, employeeSales));
+        }
 
         public static void EnterDistrictSales()
         {
