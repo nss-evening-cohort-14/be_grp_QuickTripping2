@@ -37,16 +37,10 @@ namespace be_grp_QuikTrippin.Districts
 
             }
 
-        internal void Add(District district)
-        {
-            throw new NotImplementedException();
-        }
-
         // Method
-        //public string GetDistrictName()
+        //public string Getdistrictname()
         //{
-
-        //    return district;
+        //    return EmployeeTitles.Name;
         //}
 
         // Method

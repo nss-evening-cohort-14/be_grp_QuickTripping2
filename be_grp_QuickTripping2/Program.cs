@@ -1,4 +1,5 @@
-﻿using be_grp_QuikTrippin;
+﻿using be_grp_QuickTripping2.Districts;
+using be_grp_QuikTrippin;
 using System;
 using System.Collections.Generic;
 
@@ -11,6 +12,7 @@ namespace be_grp_QuickTripping2
             Console.WriteLine("Quick Trip");
             
             var storeRepo = new StoreRepository();
+            var districtRepo = new DistrictRepository();
             
             var userEntry = 0;
             // print menu
@@ -38,9 +40,11 @@ namespace be_grp_QuickTripping2
                     // Add a Store/District
                     storeRepo.AddStore(new Store { StoreName = "Store1", StoreNumber = 1001, Qtr1 = 1000, Qtr2 = 100, Qtr3 = 10, Qtr4 = 10000, DistrictID = 1000} );
                     Console.WriteLine($"This is the value for Quarter ");
-
+                    
                     PrintStoreMenu(storeRepo);
 
+                    PrintDistrictMenu(districtRepo);
+                    //districtRepo.AddDistrict(new District { DistrictTitles.Name, DistrictNumber )
 
                     // print menu
                     userEntry = GetMenuChoice();
@@ -95,23 +99,21 @@ namespace be_grp_QuickTripping2
             
         }
 
-
-
         // District Menu
-        //    public static void PrintDistrictMenu()
-        //    {
-        //        Console.WriteLine("District Menu");
-        //        var allDistricts = districtRepo.GetAll();
-        //        foreach (var district in allDistricts)
-        //        {
-        //            Console.WriteLine($"District #: {district.DistrictNumber} \t District Name: {district.DistrictName}");
-        //        }
-        //Console.WriteLine("1. District Stores");
-        //        Console.WriteLine("2. Remove District");
-        //        Console.WriteLine("3. Add District Manager");
-        //        Console.WriteLine("4. Remove District Manager");
-        //        Console.WriteLine("5. Exit");
-        //    }
+            public static void PrintDistrictMenu(DistrictRepository districtRepo)
+        {
+            Console.WriteLine("District Menu");
+            var allDistricts = districtRepo.GetAll();
+            foreach (var district in allDistricts)
+            {
+                Console.WriteLine($"District #: {district.DistrictNumber} \t District Name: {district.Name.ToString()}");
+            }
+            Console.WriteLine("1. District Stores");
+            Console.WriteLine("2. Remove District");
+            Console.WriteLine("3. Add District Manager");
+            Console.WriteLine("4. Remove District Manager");
+            Console.WriteLine("5. Exit");
+        }
 
 
 
