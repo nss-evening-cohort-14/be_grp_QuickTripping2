@@ -1,4 +1,5 @@
 ﻿//using be_grp_QuickTripping2.Districts;
+using be_grp_QuickTripping2.Districts;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,46 +12,42 @@ namespace be_grp_QuikTrippin.Districts
         class District
         {
             // District Name
-            public string DistrictName { get; set; }
+            public DistrictTitles Name { get; }
 
             // DistrictNumber
             public int DistrictNumber { get; set; }
-            // public static int DistrictNumber = 1;
+        // public static int DistrictNumber = 1;
 
-            //  District Manager
-            public string DistrictManager { get; set; }
+        //  District Manager
+        public EmployeeTitles Title { get; }
+        public string DistrictManager { get; set; }
 
             // list of stores
+            public int StoreNumber { get; }
             //public List<Store> ListOfStores { get; set; }  = new List<Store>();
 
             // Add District
-            public District(string districtname, int districtNumber, string districtManager)
+            public District(DistrictTitles districtname, int districtNumber, EmployeeTitles title, string districtManager, int storeNumber)
             {
-                DistrictName = districtname;
+                Name = districtname;
                 DistrictNumber++;
+                Title = title;
                 DistrictManager = districtManager;
+                StoreNumber = storeNumber;
 
             }
 
-        internal void Add(District district)
-        {
-            throw new NotImplementedException();
-        }
-
         // Method
-        public string GetDistrictName()
-        {
-
-            return DistrictName;
-        }
+        //public string Getdistrictname()
+        //{
+        //    return EmployeeTitles.Name;
+        //}
 
         // Method
         public int GetDistrictNumber()
             {
                 return DistrictNumber;
             }
-
-
 
         }
     }
