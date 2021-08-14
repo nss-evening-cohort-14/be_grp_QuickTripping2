@@ -34,7 +34,7 @@ namespace be_grp_QuickTripping2
 
     void FormatDistrictReport(District district)
     {
-      Console.WriteLine($"District: {district.GetDistrictName()}");
+      Console.WriteLine($"District: {district.Getdistrictname()}");
       Console.WriteLine($"District #: {district.GetDistrictNumber()}");
       Console.WriteLine($"Manager: {district.DistrictManager}");
       Console.WriteLine("\n\n");
