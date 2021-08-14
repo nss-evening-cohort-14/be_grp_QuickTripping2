@@ -1,4 +1,5 @@
 ﻿//using be_grp_QuickTripping2.Districts;
+using be_grp_QuickTripping2.Districts;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,7 +12,7 @@ namespace be_grp_QuikTrippin.Districts
         class District
         {
             // District Name
-            public string DistrictName { get; set; }
+            public DistrictTitles Name { get; }
 
             // DistrictNumber
             public int DistrictNumber { get; set; }
@@ -26,9 +27,9 @@ namespace be_grp_QuikTrippin.Districts
             //public List<Store> ListOfStores { get; set; }  = new List<Store>();
 
             // Add District
-            public District(string districtname, int districtNumber, EmployeeTitles title, string districtManager)
+            public District(DistrictTitles districtname, int districtNumber, EmployeeTitles title, string districtManager)
             {
-                DistrictName = districtname;
+                Name = districtname;
                 DistrictNumber++;
                 Title = title;
                 DistrictManager = districtManager;
@@ -44,7 +45,7 @@ namespace be_grp_QuikTrippin.Districts
         public string GetDistrictName()
         {
 
-            return DistrictName;
+            return districtname;
         }
 
         // Method

@@ -12,9 +12,9 @@ namespace be_grp_QuickTripping2.Districts
     {
         static List<District> _district = new List<District>() 
         {
-            new District("South", 1, EmployeeTitles.DistrictManager, "Silent Bob"),
-            new District("SouthEast", 2, EmployeeTitles.DistrictManager, "Karen"),
-            new District("NorthEast", 3, EmployeeTitles.DistrictManager, "Saul")
+            new District(DistrictTitles.South, 1, EmployeeTitles.DistrictManager, "Silent Bob"),
+            new District(DistrictTitles.SouthEast, 2, EmployeeTitles.DistrictManager, "Karen"),
+            new District(DistrictTitles.NorthEast, 3, EmployeeTitles.DistrictManager, "Saul")
         };
 
 
@@ -32,7 +32,7 @@ namespace be_grp_QuickTripping2.Districts
         public void Delete(string districtname)
         {
             var removeDistrict = _district.First
-                (district => district.DistrictName == districtname);
+                (district => district.Name == districtname);
 
             _district.Remove(removeDistrict);
         }
