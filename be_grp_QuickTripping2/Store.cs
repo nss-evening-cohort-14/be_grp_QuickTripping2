@@ -15,19 +15,25 @@ namespace be_grp_QuikTrippin
             new Store {
                 StoreName = "Store1",
                 StoreNumber = 1001,
-                Qtr1 = 1000,
-                Qtr2 = 100,
-                Qtr3 = 10,
-                Qtr4 = 10000,
+                GasQtr1 = 1000,
+                GasQtr2 = 100,
+                GasQtr3 = 10,
+                GasQtr4 = 10000,
+                RetailQtr1 = 1000,
+                RetailQtr2 = 100,
+                RetailQtr3 = 10,
+                RetailQtr4 = 10000,
                 SalesPerQuarter = new List<double> {1,2,3,4}, 
                 DistrictID = 1000
                 },
                
-            new Store { StoreName = "Store3", StoreNumber = 1002, Qtr1 = 1000, Qtr2 = 100, Qtr3 = 10, Qtr4 = 10000, DistrictID = 1000},
-            new Store { StoreName = "Store2", StoreNumber = 1003, Qtr1 = 1000, Qtr2 = 100, Qtr3 = 10, Qtr4 = 10000, DistrictID = 1000},
-            new Store { StoreName = "Store4", StoreNumber = 1004, Qtr1 = 1000, Qtr2 = 100, Qtr3 = 10, Qtr4 = 10000, DistrictID = 1000},
-            new Store { StoreName = "Store5", StoreNumber = 1005, Qtr1 = 1000, Qtr2 = 100, Qtr3 = 10, Qtr4 = 10000, DistrictID = 1000},
+            new Store { StoreName = "Store3", StoreNumber = 1002, GasQtr1 = 1000, GasQtr2 = 100, GasQtr3 = 10, GasQtr4 = 10000, RetailQtr1 = 1000, RetailQtr2 = 100, RetailQtr3 = 10, RetailQtr4 = 10000, DistrictID = 1000},
+            new Store { StoreName = "Store2", StoreNumber = 1003, GasQtr1 = 1000, GasQtr2 = 100, GasQtr3 = 10, GasQtr4 = 10000, RetailQtr1 = 1000, RetailQtr2 = 100, RetailQtr3 = 10, RetailQtr4 = 10000, DistrictID = 1000},
+            new Store { StoreName = "Store4", StoreNumber = 1004, GasQtr1 = 1000, GasQtr2 = 100, GasQtr3 = 10, GasQtr4 = 10000, RetailQtr1 = 1000, RetailQtr2 = 100, RetailQtr3 = 10, RetailQtr4 = 10000, DistrictID = 1000},
+            new Store { StoreName = "Store5", StoreNumber = 1005, GasQtr1 = 1000, GasQtr2 = 100, GasQtr3 = 10, GasQtr4 = 10000, RetailQtr1 = 1000, RetailQtr2 = 100, RetailQtr3 = 10, RetailQtr4 = 10000, DistrictID = 1000},
         };
+
+
 
         public List<Store> GetAll()
         {
@@ -39,49 +45,73 @@ namespace be_grp_QuikTrippin
             _store.Add(store);
         }
 
-        public void DeleteStore(double storeNumber)
+        public void DeleteStore(int storeNumber)
         {
             var storeToRemove = _store.First(store => store.StoreNumber == storeNumber);
             _store.Remove(storeToRemove);
         }
 
-        //public void FindQuarterValue(int userQuarter)
-        //{
-        //    switch (userQuarter)
-        //    {
-        //        case 1:
-        //            return Qtr1;
-        //            break;
-        //        case 2:
-        //            return Qtr2;
-        //            break;
-        //        case 3:
-        //            return Qtr3;
-        //            break;
-        //        case 4:
-        //            return Qtr4;
-        //            break;
-
-        //    }
-        //}
-        public void GetStoreQuarter(int storeID, int userQuarter)
+        public bool FindStore(int storeNumber)
         {
-            //switch (userQuarter)
-            //{
-            //    case 1:
-            //        return Qtr1;
-            //        break;
-            //    case 2:
-            //        return Qtr2;
-            //        break;
-            //    case 3:
-            //        return Qtr3;
-            //        break;
-            //    case 4:
-            //        return Qtr4;
-            //        break;
+          //  var foundStore = _store.First(store => store.StoreNumber == storeNumber);
+            var foundIt = false;
+            foreach (var store in _store)
+            {
+                if (store.StoreNumber == storeNumber)
+                {
+                    return true;
+                }
+            }
 
-            //}
+
+
+            //if (foundStore == null) return false;
+            return false;
+        }
+
+
+        public void FindQuarterValue(int userQuarter)
+        {
+           
+                //switch (userQuarter)
+                //{
+                //    case 1:
+                //        var quarter1Report = _store.Any(x => x.Qtr1 == userQuarter);
+                //        return quarter1Report;
+
+                //    case 2:
+                //        var quarter2Report = _store.Any(x => x.Qtr2 == userQuarter);
+                //        return quarter2Report;
+
+                //    case 3:
+                //        var quarter3Report = _store.Any(x => x.Qtr3 == userQuarter);
+                //        return quarter3Report;
+
+                //    case 4:
+                //        var quarter4Report = _store.Any(x => x.Qtr3 == userQuarter);
+                //        return quarter4Report;
+                //    default: return Console.WriteLine("Invalid Entry");
+
+                //}
+        }
+        public void GetStoreQuarter(int storeNumber, int userQuarter)
+        {
+            switch (userQuarter)
+            {
+                //case 1:
+                //    return Qtr1;
+                //    break;
+                //case 2:
+                //    return Qtr2;
+                //    break;
+                //case 3:
+                //    return Qtr3;
+                //    break;
+                //case 4:
+                //    return Qtr4;
+                //    break;
+
+            }
         }
     }
 
@@ -107,11 +137,19 @@ namespace be_grp_QuikTrippin
         //List<Employees> ListOfEmployees { get; set; } = new List<Employees>();
 
         // array of retail sales per quarter(4)
+       // public Dictionary<int, List<Store>>();
+
         public List<double> SalesPerQuarter { get; set; } = new List<double>();
-        public double Qtr1 { get; set; }
-        public double Qtr2 { get; set; }
-        public double Qtr3 { get; set; }
-        public double Qtr4 { get; set; }
+
+        public double GasQtr1 { get; set; }
+        public double GasQtr2 { get; set; }
+        public double GasQtr3 { get; set; }
+        public double GasQtr4 { get; set; }
+
+        public double RetailQtr1 { get; set; }
+        public double RetailQtr2 { get; set; }
+        public double RetailQtr3 { get; set; }
+        public double RetailQtr4 { get; set; }
 
         public int DistrictID { get; set; }
 
