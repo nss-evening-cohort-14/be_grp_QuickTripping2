@@ -9,9 +9,9 @@ namespace be_grp_QuickTripping2
         static void Main(string[] args)
         {
             Console.WriteLine("Quick Trip");
-            
+
             var storeRepo = new StoreRepository();
-            
+
             var userEntry = 0;
             // print menu
             PrintMenuChoice();
@@ -36,14 +36,13 @@ namespace be_grp_QuickTripping2
                     break;
                 case 4:
                     //Add a Store/District
-                  storeRepo.AddStore(new Store { StoreName = "Store7", StoreNumber = 1007, GasQtr1 = 1000, GasQtr2 = 100, GasQtr3 = 10, GasQtr4 = 10000, RetailQtr1 = 1000, RetailQtr2 = 100, RetailQtr3 = 10, RetailQtr4 = 10000, DistrictID = 1000} );
-                   
+                    storeRepo.AddStore(new Store { StoreName = "Store6", StoreNumber = 1007, GasQtr1 = 1000, GasQtr2 = 100, GasQtr3 = 10, GasQtr4 = 10000, RetailQtr1 = 1000, RetailQtr2 = 100, RetailQtr3 = 10, RetailQtr4 = 10000, DistrictID = 1000 });
                     Console.WriteLine($"This is the value for Quarter ");
-                   PrintStoreMenu(storeRepo);
-
+                    PrintStoreMenu(storeRepo);
                     NewStoreMenu(storeRepo);
-
-                    // print menu
+                    PrintStoreMenu(storeRepo);
+                    Console.WriteLine($"Your new store has been added!");
+                    PrintMenuChoice();
                     userEntry = GetMenuChoice();
                     break;
                 case 5:
@@ -55,13 +54,14 @@ namespace be_grp_QuickTripping2
         }
 
         public static void NewStoreMenu(StoreRepository storeRepo)
-        { 
-           var userChoice = CheckingValue("Would you like to make a new store? \nPlease Enter 1 for Yes. \nPlease Enter 2 for No.");
-            while (userChoice == 1) {
+        {
+            var userChoice = CheckingValue("Would you like to make a new store? \nPlease Enter 1 for Yes. \nPlease Enter 2 for No.");
+            while (userChoice == 1)
+            {
                 AddingNewStore(storeRepo);
                 userChoice = CheckingValue("Would you like to make a new store? \nPlease Enter 1 for Yes. \nPlease Enter 2 for No.");
             }
-
+            
 
             // okay, goodbye
 
@@ -78,27 +78,26 @@ namespace be_grp_QuickTripping2
             while (storeRepo.FindStore(storeNumberInput))
             {
                 storeNumberInput = CheckingValue("That store number already exists, please enter a new store number.");
+
             }
             var gasQuarter1 = CheckingValue("Enter sales for Gas Quarter 1:");
             var gasQuarter2 = CheckingValue("Enter sales for Gas Quarter 2:");
             var gasQuarter3 = CheckingValue("Enter sales for Gas Quarter 3:");
             var gasQuarter4 = CheckingValue("Enter sales for Gas Quarter 4:");
-            
-            Console.WriteLine($"Yearly Gas Sales for {storeNumberInput}");
+
+            Console.WriteLine($"Yearly Gas Sales for Store Number:{storeNumberInput}");
             Console.WriteLine(gasQuarter1 + gasQuarter2 + gasQuarter3 + gasQuarter4);
 
-            Console.WriteLine($"Enter Retail sales for {storeNumberInput}");
-            var retailYearly = Int32.Parse(Console.ReadLine());
             var retailQuarter1 = CheckingValue("Enter sales for retail Quarter 1:");
             var retailQuarter2 = CheckingValue("Enter sales for retail Quarter 2:");
             var retailQuarter3 = CheckingValue("Enter sales for retail Quarter 3:");
             var retailQuarter4 = CheckingValue("Enter sales for retail Quarter 4:");
 
-            Console.WriteLine($"Yearly Retail Sales for {storeNumberInput}");
+            Console.WriteLine($"Yearly Retail Sales for Store Number: {storeNumberInput}");
             Console.WriteLine(retailQuarter1 + retailQuarter2 + retailQuarter3 + retailQuarter4);
             storeRepo.AddStore(new Store
             {
-                StoreName = "Store1",
+                StoreName = "Store7",
                 StoreNumber = storeNumberInput,
                 GasQtr1 = gasQuarter1,
                 GasQtr2 = gasQuarter2,
@@ -120,7 +119,7 @@ namespace be_grp_QuickTripping2
 
             while (!Int32.TryParse(checkValue, out userChoice) || userChoice < 1)
             {
-              
+
                 Console.WriteLine($"{message}");
                 checkValue = Console.ReadLine();
             }
@@ -151,7 +150,7 @@ namespace be_grp_QuickTripping2
             Console.WriteLine("4. Add a Store/District");
             Console.WriteLine("5. Exit");
         }
-        //  Console.WriteLine("");
+        
 
         public static void EnterDistrictSales()
         {
@@ -162,11 +161,11 @@ namespace be_grp_QuickTripping2
         {
             Console.WriteLine("Store Menu:");
             var allTheStores = storeRepo.GetAll();
-                foreach(var store in allTheStores)
+            foreach (var store in allTheStores)
             {
                 Console.WriteLine($"Store Number: {store.StoreNumber} \t Store Name:{store.StoreName}");
             }
-            
+
         }
 
 
