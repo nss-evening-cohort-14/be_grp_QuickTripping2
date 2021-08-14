@@ -37,14 +37,14 @@ namespace be_grp_QuikTrippin.Districts
 
             }
 
-        // Method
-        //public string Getdistrictname()
-        //{
-        //    return EmployeeTitles.Name;
-        //}
+    // Method
+    public string Getdistrictname()
+    {
+      return Name.ToString();
+    }
 
-        // Method
-        public int GetDistrictNumber()
+    // Method
+    public int GetDistrictNumber()
             {
                 return DistrictNumber;
             }
