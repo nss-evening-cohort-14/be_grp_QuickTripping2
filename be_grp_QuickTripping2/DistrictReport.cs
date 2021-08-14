@@ -48,6 +48,7 @@ namespace be_grp_QuickTripping2
 
       var employeeCount = 1;
 
+
       foreach (var employee in employees)
       {
         if (employee.StoreNumber == store.StoreNumber)
