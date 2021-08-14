@@ -1,5 +1,6 @@
 ﻿using be_grp_QuikTrippin;
 using System;
+using System.Collections.Generic;
 
 namespace be_grp_QuickTripping2
 {
@@ -7,7 +8,10 @@ namespace be_grp_QuickTripping2
     {
         static void Main(string[] args)
         {
+            Console.WriteLine("Quick Trip");
+            
             var storeRepo = new StoreRepository();
+            
             var userEntry = 0;
             // print menu
             PrintMenuChoice();
@@ -36,12 +40,6 @@ namespace be_grp_QuickTripping2
                     Console.WriteLine($"This is the value for Quarter ");
 
                     PrintStoreMenu(storeRepo);
-                    
-
-
-
-
-
 
 
                     // print menu
@@ -86,8 +84,6 @@ namespace be_grp_QuickTripping2
 
         }
 
-
-
         public static void PrintStoreMenu(StoreRepository storeRepo)
         {
             Console.WriteLine("Store Menu:");
@@ -99,8 +95,23 @@ namespace be_grp_QuickTripping2
             
         }
 
-        
 
+
+        // District Menu
+        //    public static void PrintDistrictMenu()
+        //    {
+        //        Console.WriteLine("District Menu");
+        //        var allDistricts = districtRepo.GetAll();
+        //        foreach (var district in allDistricts)
+        //        {
+        //            Console.WriteLine($"District #: {district.DistrictNumber} \t District Name: {district.DistrictName}");
+        //        }
+        //Console.WriteLine("1. District Stores");
+        //        Console.WriteLine("2. Remove District");
+        //        Console.WriteLine("3. Add District Manager");
+        //        Console.WriteLine("4. Remove District Manager");
+        //        Console.WriteLine("5. Exit");
+        //    }
 
 
 
