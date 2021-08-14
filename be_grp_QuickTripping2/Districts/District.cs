@@ -42,11 +42,11 @@ namespace be_grp_QuikTrippin.Districts
         }
 
         // Method
-        public string GetDistrictName()
-        {
+        //public string GetDistrictName()
+        //{
 
-            return districtname;
-        }
+        //    return district;
+        //}
 
         // Method
         public int GetDistrictNumber()

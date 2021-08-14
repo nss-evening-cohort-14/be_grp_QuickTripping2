@@ -29,7 +29,7 @@ namespace be_grp_QuickTripping2.Districts
             _district.Add(district);
         }
 
-        public void Delete(string districtname)
+        public void Delete(DistrictTitles districtname)
         {
             var removeDistrict = _district.First
                 (district => district.Name == districtname);
