@@ -9,7 +9,7 @@ namespace be_grp_QuikTrippin
 
     class StoreRepository
     {
-        static List<Store> _store = new List<Store>
+     public   static List<Store> _store = new List<Store>
         {
             // static int StoreNumber = 10006;
             new Store {
