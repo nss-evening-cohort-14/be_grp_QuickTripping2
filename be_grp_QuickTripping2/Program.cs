@@ -1,4 +1,5 @@
-﻿using be_grp_QuikTrippin;
+﻿using be_grp_QuickTripping2.Districts;
+using be_grp_QuikTrippin;
 using System;
 
 namespace be_grp_QuickTripping2
@@ -11,6 +12,7 @@ namespace be_grp_QuickTripping2
 
             var employeeRepo = new EmployeeRepository();
             var storeRepo = new StoreRepository();
+            var districtRepo = new DistrictRepository();
             
             var userEntry = 0;
             // print menu
@@ -51,16 +53,20 @@ namespace be_grp_QuickTripping2
 
                         NewStoreMenu(storeRepo);
 
-                        // print menu
-                        PrintMenuChoice();
-                        userEntry = GetMenuChoice();
-                        break;
-                    case 5:
-                        // exiting program if menu choice is 5
-                        return;
-                    default:
-                        break;
-                }
+                    // print menu
+                    userEntry = GetMenuChoice();
+                    break;
+                case 5:
+                    PrintDistrictMenu(districtRepo);
+                    //districtRepo.AddDistrict(new District { DistrictTitles.Name, DistrictNumber )
+                    // print menu
+                    userEntry = GetMenuChoice();
+                    break;
+                case 6:
+                    // exiting program if menu choice is 6
+                    return;
+                default:
+                    break;
             }
         }
 
@@ -77,8 +83,6 @@ namespace be_grp_QuickTripping2
 
 
         }
-
-
 
 
 
@@ -158,8 +162,9 @@ namespace be_grp_QuickTripping2
             Console.WriteLine("1. Enter District Sales");
             Console.WriteLine("2. Generate District Report");
             Console.WriteLine("3. Add New Employee");
-            Console.WriteLine("4. Add a Store/District");
-            Console.WriteLine("5. Exit");
+            Console.WriteLine("4. Add a Store");
+            Console.WriteLine("5. Add District");
+            Console.WriteLine("6. Exit");
         }
         //  Console.WriteLine("");
 
@@ -236,23 +241,21 @@ namespace be_grp_QuickTripping2
             
         }
 
-
-
         // District Menu
-        //    public static void PrintDistrictMenu()
-        //    {
-        //        Console.WriteLine("District Menu");
-        //        var allDistricts = districtRepo.GetAll();
-        //        foreach (var district in allDistricts)
-        //        {
-        //            Console.WriteLine($"District #: {district.DistrictNumber} \t District Name: {district.DistrictName}");
-        //        }
-        //Console.WriteLine("1. District Stores");
-        //        Console.WriteLine("2. Remove District");
-        //        Console.WriteLine("3. Add District Manager");
-        //        Console.WriteLine("4. Remove District Manager");
-        //        Console.WriteLine("5. Exit");
-        //    }
+            public static void PrintDistrictMenu(DistrictRepository districtRepo)
+        {
+            Console.WriteLine("District Menu");
+            var allDistricts = districtRepo.GetAll();
+            foreach (var district in allDistricts)
+            {
+                Console.WriteLine($"District #: {district.DistrictNumber} \t District Name: {district.Name.ToString()}");
+            }
+            Console.WriteLine("1. District Stores");
+            Console.WriteLine("2. Remove District");
+            Console.WriteLine("3. Add District Manager");
+            Console.WriteLine("4. Remove District Manager");
+            Console.WriteLine("5. Exit");
+        }
 
 
 
