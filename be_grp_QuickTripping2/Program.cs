@@ -3,19 +3,7 @@ using System;
 
 namespace be_grp_QuickTripping2
 {
-<<<<<<< HEAD
-  class Program
-  {
-        
-    static void Main(string[] args)
-    {
-       Console.WriteLine("Quick Trip 2");
 
-            var userEntry = 0;
-      // print menu
-      PrintMenuChoice();
-      GetMenuChoice();
-=======
     class Program
     {
         static void Main(string[] args)
@@ -25,7 +13,6 @@ namespace be_grp_QuickTripping2
             // print menu
             PrintMenuChoice();
             userEntry = GetMenuChoice();
->>>>>>> 2ec70ddf98e661a7403a198aaf18286a61079edd
 
             switch (userEntry)
             {
