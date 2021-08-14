@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace be_grp_QuikTrippin
 {
@@ -63,6 +60,51 @@ namespace be_grp_QuikTrippin
             }
 
             return false;
+        }
+
+
+        public void FindQuarterValue(int userQuarter)
+        {
+           
+                //switch (userQuarter)
+                //{
+                //    case 1:
+                //        var quarter1Report = _store.Any(x => x.Qtr1 == userQuarter);
+                //        return quarter1Report;
+
+                //    case 2:
+                //        var quarter2Report = _store.Any(x => x.Qtr2 == userQuarter);
+                //        return quarter2Report;
+
+                //    case 3:
+                //        var quarter3Report = _store.Any(x => x.Qtr3 == userQuarter);
+                //        return quarter3Report;
+
+                //    case 4:
+                //        var quarter4Report = _store.Any(x => x.Qtr3 == userQuarter);
+                //        return quarter4Report;
+                //    default: return Console.WriteLine("Invalid Entry");
+
+                //}
+        }
+        public void GetStoreQuarter(int storeNumber, int userQuarter)
+        {
+            //switch (userQuarter)
+            //{
+                //case 1:
+                //    return Qtr1;
+                //    break;
+                //case 2:
+                //    return Qtr2;
+                //    break;
+                //case 3:
+                //    return Qtr3;
+                //    break;
+                //case 4:
+                //    return Qtr4;
+                //    break;
+
+            //}
         }
     }
 
