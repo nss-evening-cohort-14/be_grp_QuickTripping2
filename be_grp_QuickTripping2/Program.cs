@@ -4,23 +4,18 @@ using System.Collections.Generic;
 
 namespace be_grp_QuickTripping2
 {
-
-  class Program
-  {
+    class Program
+    {
         static void Main(string[] args)
         {
             Console.WriteLine("Quick Trip");
             
             var storeRepo = new StoreRepository();
-            var storeRepo2 = new StoreRepository();
-            //var districtRepo = new DistrictRepository();
+            
             var userEntry = 0;
-
             // print menu
             PrintMenuChoice();
             userEntry = GetMenuChoice();
-
-
 
             switch (userEntry)
             {
@@ -41,7 +36,10 @@ namespace be_grp_QuickTripping2
                     break;
                 case 4:
                     // Add a Store/District
-                    storeRepo2.AddStore(new Store { StoreName = "Chesty", StoreNumber = 1775, Qtr1 = 1000, Qtr2 = 100, Qtr3 = 10, Qtr4 = 10000 } );
+                    storeRepo.AddStore(new Store { StoreName = "Store1", StoreNumber = 1001, Qtr1 = 1000, Qtr2 = 100, Qtr3 = 10, Qtr4 = 10000, DistrictID = 1000} );
+                    Console.WriteLine($"This is the value for Quarter ");
+
+                    PrintStoreMenu(storeRepo);
 
 
                     // print menu
@@ -62,7 +60,7 @@ namespace be_grp_QuickTripping2
             Console.WriteLine("Please enter a menu choice");
             userMenuChoice = Console.ReadLine();
 
-            while (!Int32.TryParse(userMenuChoice, out userChoice))
+            while (!Int32.TryParse(userMenuChoice, out userChoice) || (userChoice > 5 && userChoice < 1))
             {
                 PrintMenuChoice();
                 Console.WriteLine("Please enter a menu choice");
@@ -86,21 +84,45 @@ namespace be_grp_QuickTripping2
 
         }
 
+        public static void PrintStoreMenu(StoreRepository storeRepo)
+        {
+            Console.WriteLine("Store Menu:");
+            var allTheStores = storeRepo.GetAll();
+                foreach(var store in allTheStores)
+            {
+                Console.WriteLine($"Store Number: {store.StoreNumber} \t Store Name:{store.StoreName}");
+            }
+            
+        }
+
+
+
         // District Menu
-    //    public static void PrintDistrictMenu()
-    //    {
-    //        Console.WriteLine("District Menu");
-    //        var allDistricts = districtRepo.GetAll();
-    //        foreach (var district in allDistricts)
-    //        {
-    //            Console.WriteLine($"District #: {district.DistrictNumber} \t District Name: {district.DistrictName}");
-    //        }
-    //Console.WriteLine("1. District Stores");
-    //        Console.WriteLine("2. Remove District");
-    //        Console.WriteLine("3. Add District Manager");
-    //        Console.WriteLine("4. Remove District Manager");
-    //        Console.WriteLine("5. Exit");
-    //    }
+        //    public static void PrintDistrictMenu()
+        //    {
+        //        Console.WriteLine("District Menu");
+        //        var allDistricts = districtRepo.GetAll();
+        //        foreach (var district in allDistricts)
+        //        {
+        //            Console.WriteLine($"District #: {district.DistrictNumber} \t District Name: {district.DistrictName}");
+        //        }
+        //Console.WriteLine("1. District Stores");
+        //        Console.WriteLine("2. Remove District");
+        //        Console.WriteLine("3. Add District Manager");
+        //        Console.WriteLine("4. Remove District Manager");
+        //        Console.WriteLine("5. Exit");
+        //    }
+
+
+
+
+
+
+
+
+
+
+
 
 
 

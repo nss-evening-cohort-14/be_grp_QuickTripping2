@@ -18,7 +18,6 @@ namespace be_grp_QuickTripping2.Districts
 
         //public static object Districtname { get; private set; }
 
-        // private static readonly Store _store;
         public List<District> GetAll()
         {
             return _district;
