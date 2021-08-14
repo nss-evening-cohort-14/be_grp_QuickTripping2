@@ -12,9 +12,9 @@ namespace be_grp_QuickTripping2.Districts
     {
         static List<District> _district = new List<District>() 
         {
-            new District(DistrictTitles.South, 1, EmployeeTitles.DistrictManager, "Silent Bob"),
-            new District(DistrictTitles.SouthEast, 2, EmployeeTitles.DistrictManager, "Karen"),
-            new District(DistrictTitles.NorthEast, 3, EmployeeTitles.DistrictManager, "Saul")
+            new District(DistrictTitles.South, 1, EmployeeTitles.DistrictManager, "Silent Bob", 1001),
+            new District(DistrictTitles.SouthEast, 2, EmployeeTitles.DistrictManager, "Karen", 1003),
+            new District(DistrictTitles.NorthEast, 3, EmployeeTitles.DistrictManager, "Saul", 1004)
         };
 
 
