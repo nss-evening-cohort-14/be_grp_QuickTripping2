@@ -15,21 +15,22 @@ namespace be_grp_QuikTrippin.Districts
 
             // DistrictNumber
             public int DistrictNumber { get; set; }
-            // public static int DistrictNumber = 1;
+        // public static int DistrictNumber = 1;
 
-            //  District Manager
-            public string DistrictManager { get; set; }
-            public EmployeeTitles Title { get; }
+        //  District Manager
+        public EmployeeTitles Title { get; }
+        public string DistrictManager { get; set; }
 
             // list of stores
             public int StoreNumber { get; }
             //public List<Store> ListOfStores { get; set; }  = new List<Store>();
 
             // Add District
-            public District(string districtname, int districtNumber, string districtManager)
+            public District(string districtname, int districtNumber, EmployeeTitles title, string districtManager)
             {
                 DistrictName = districtname;
                 DistrictNumber++;
+                Title = title;
                 DistrictManager = districtManager;
 
             }
