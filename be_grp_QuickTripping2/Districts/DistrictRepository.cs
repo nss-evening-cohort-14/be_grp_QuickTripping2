@@ -1,4 +1,5 @@
-﻿using be_grp_QuikTrippin.Districts;
+﻿using be_grp_QuikTrippin;
+using be_grp_QuikTrippin.Districts;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,8 +12,9 @@ namespace be_grp_QuickTripping2.Districts
     {
         static List<District> _district = new List<District>() 
         {
-            new District("South", 1, "Bob"),
-            new District("SouthEast", 2, "Karen"),
+            new District("South", 1, EmployeeTitles.DistrictManager, "Silent Bob"),
+            new District("SouthEast", 2, EmployeeTitles.DistrictManager, "Karen"),
+            new District("NorthEast", 3, EmployeeTitles.DistrictManager, "Saul")
         };
 
 
