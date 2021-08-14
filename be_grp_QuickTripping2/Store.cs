@@ -6,7 +6,7 @@ namespace be_grp_QuikTrippin
 
     class StoreRepository
     {
-     public   static List<Store> _store = new List<Store>
+     public static List<Store> _store = new List<Store>
         {
             // static int StoreNumber = 10006;
             new Store {
@@ -24,10 +24,10 @@ namespace be_grp_QuikTrippin
                 DistrictID = 1000
                 },
                
-            new Store { StoreName = "Store3", StoreNumber = 1002, GasQtr1 = 1000, GasQtr2 = 100, GasQtr3 = 10, GasQtr4 = 10000, RetailQtr1 = 1000, RetailQtr2 = 100, RetailQtr3 = 10, RetailQtr4 = 10000, DistrictID = 1000},
-            new Store { StoreName = "Store2", StoreNumber = 1003, GasQtr1 = 1000, GasQtr2 = 100, GasQtr3 = 10, GasQtr4 = 10000, RetailQtr1 = 1000, RetailQtr2 = 100, RetailQtr3 = 10, RetailQtr4 = 10000, DistrictID = 1000},
-            new Store { StoreName = "Store4", StoreNumber = 1004, GasQtr1 = 1000, GasQtr2 = 100, GasQtr3 = 10, GasQtr4 = 10000, RetailQtr1 = 1000, RetailQtr2 = 100, RetailQtr3 = 10, RetailQtr4 = 10000, DistrictID = 1000},
-            new Store { StoreName = "Store5", StoreNumber = 1005, GasQtr1 = 1000, GasQtr2 = 100, GasQtr3 = 10, GasQtr4 = 10000, RetailQtr1 = 1000, RetailQtr2 = 100, RetailQtr3 = 10, RetailQtr4 = 10000, DistrictID = 1000},
+            new Store { StoreName = "Store3", StoreNumber = 1002, GasQtr1 = 1000, GasQtr2 = 100, GasQtr3 = 10, GasQtr4 = 10000, RetailQtr1 = 1000, RetailQtr2 = 100, RetailQtr3 = 10, RetailQtr4 = 10000, DistrictID = 1},
+            new Store { StoreName = "Store2", StoreNumber = 1003, GasQtr1 = 1000, GasQtr2 = 100, GasQtr3 = 10, GasQtr4 = 10000, RetailQtr1 = 1000, RetailQtr2 = 100, RetailQtr3 = 10, RetailQtr4 = 10000, DistrictID = 1},
+            new Store { StoreName = "Store4", StoreNumber = 1004, GasQtr1 = 1000, GasQtr2 = 100, GasQtr3 = 10, GasQtr4 = 10000, RetailQtr1 = 1000, RetailQtr2 = 100, RetailQtr3 = 10, RetailQtr4 = 10000, DistrictID = 1},
+            new Store { StoreName = "Store5", StoreNumber = 1005, GasQtr1 = 1000, GasQtr2 = 100, GasQtr3 = 10, GasQtr4 = 10000, RetailQtr1 = 1000, RetailQtr2 = 100, RetailQtr3 = 10, RetailQtr4 = 10000, DistrictID = 1},
         };
 
 
