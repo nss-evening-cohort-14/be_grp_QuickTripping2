@@ -37,7 +37,7 @@ namespace be_grp_QuickTripping2
                     userEntry = GetMenuChoice();
                     break;
                 case 4:
-                    //Add a Store/District
+                    //Add a Store
                   storeRepo.AddStore(new Store { StoreName = "Store7", StoreNumber = 1007, GasQtr1 = 1000, GasQtr2 = 100, GasQtr3 = 10, GasQtr4 = 10000, RetailQtr1 = 1000, RetailQtr2 = 100, RetailQtr3 = 10, RetailQtr4 = 10000, DistrictID = 1000} );
                    
                     Console.WriteLine($"This is the value for Quarter ");
@@ -46,15 +46,17 @@ namespace be_grp_QuickTripping2
 
                     NewStoreMenu(storeRepo);
 
-                    PrintDistrictMenu(districtRepo);
-                    //districtRepo.AddDistrict(new District { DistrictTitles.Name, DistrictNumber )
-
-
                     // print menu
                     userEntry = GetMenuChoice();
                     break;
                 case 5:
-                    // exiting program if menu choice is 5
+                    PrintDistrictMenu(districtRepo);
+                    //districtRepo.AddDistrict(new District { DistrictTitles.Name, DistrictNumber )
+                    // print menu
+                    userEntry = GetMenuChoice();
+                    break;
+                case 6:
+                    // exiting program if menu choice is 6
                     return;
                 default:
                     break;
@@ -74,8 +76,6 @@ namespace be_grp_QuickTripping2
 
 
         }
-
-
 
 
 
@@ -155,8 +155,9 @@ namespace be_grp_QuickTripping2
             Console.WriteLine("1. Enter District Sales");
             Console.WriteLine("2. Generate District Report");
             Console.WriteLine("3. Add New Employee");
-            Console.WriteLine("4. Add a Store/District");
-            Console.WriteLine("5. Exit");
+            Console.WriteLine("4. Add a Store");
+            Console.WriteLine("5. Add District");
+            Console.WriteLine("6. Exit");
         }
         //  Console.WriteLine("");
 
