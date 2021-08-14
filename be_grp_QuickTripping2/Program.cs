@@ -53,20 +53,21 @@ namespace be_grp_QuickTripping2
 
                         NewStoreMenu(storeRepo);
 
-                    // print menu
-                    userEntry = GetMenuChoice();
-                    break;
-                case 5:
-                    PrintDistrictMenu(districtRepo);
-                    //districtRepo.AddDistrict(new District { DistrictTitles.Name, DistrictNumber )
-                    // print menu
-                    userEntry = GetMenuChoice();
-                    break;
-                case 6:
-                    // exiting program if menu choice is 6
-                    return;
-                default:
-                    break;
+                        // print menu
+                        userEntry = GetMenuChoice();
+                        break;
+                    case 5:
+                        PrintDistrictMenu(districtRepo);
+                        //districtRepo.AddDistrict(new District { DistrictTitles.Name, DistrictNumber )
+                        // print menu
+                        userEntry = GetMenuChoice();
+                        break;
+                    case 6:
+                        // exiting program if menu choice is 6
+                        return;
+                    default:
+                        break;
+                }
             }
         }
 
