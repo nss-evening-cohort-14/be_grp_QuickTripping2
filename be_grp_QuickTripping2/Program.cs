@@ -33,7 +33,18 @@ namespace be_grp_QuickTripping2
                     break;
                 case 4:
                     // Add a Store/District
-                    storeRepo.AddStore(new Store { StoreName = "Store1", StoreNumber = 1001, Qtr1 = 1000, Qtr2 = 100, Qtr3 = 10, Qtr4 = 10000 } );
+                    storeRepo.AddStore(new Store { StoreName = "Store1", StoreNumber = 1001, Qtr1 = 1000, Qtr2 = 100, Qtr3 = 10, Qtr4 = 10000, DistrictID = 1000} );
+                    Console.WriteLine($"This is the value for Quarter ");
+
+                    PrintStoreMenu(storeRepo);
+                    
+
+
+
+
+
+
+
                     // print menu
                     userEntry = GetMenuChoice();
                     break;
@@ -52,7 +63,7 @@ namespace be_grp_QuickTripping2
             Console.WriteLine("Please enter a menu choice");
             userMenuChoice = Console.ReadLine();
 
-            while (!Int32.TryParse(userMenuChoice, out userChoice))
+            while (!Int32.TryParse(userMenuChoice, out userChoice) || (userChoice > 5 && userChoice < 1))
             {
                 PrintMenuChoice();
                 Console.WriteLine("Please enter a menu choice");
@@ -75,6 +86,33 @@ namespace be_grp_QuickTripping2
         {
 
         }
+
+
+
+        public static void PrintStoreMenu(StoreRepository storeRepo)
+        {
+            Console.WriteLine("Store Menu:");
+            var allTheStores = storeRepo.GetAll();
+                foreach(var store in allTheStores)
+            {
+                Console.WriteLine($"Store Number: {store.StoreNumber} \t Store Name:{store.StoreName}");
+            }
+            
+        }
+
+        
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
