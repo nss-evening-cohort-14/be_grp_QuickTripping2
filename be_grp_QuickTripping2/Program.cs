@@ -42,6 +42,13 @@ namespace be_grp_QuickTripping2
                     PrintStoreMenu(storeRepo);
 
 
+
+
+
+
+
+
+                    storeRepo.AddStore(new Store { StoreName = "Store1", StoreNumber = 1006, Qtr1 = 1000, Qtr2 = 100, Qtr3 = 10, Qtr4 = 10000 } );
                     // print menu
                     userEntry = GetMenuChoice();
                     break;
@@ -95,7 +102,11 @@ namespace be_grp_QuickTripping2
             
         }
 
+    public static void GenerateDistrictReport()
+    {
+      Console.WriteLine("We are generating the District Report");
 
+    }
 
         // District Menu
         //    public static void PrintDistrictMenu()
